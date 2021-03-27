@@ -4,6 +4,7 @@ Developed By Akbar Shahamati
 Demo Screen Shot 
 ![screenshot](https://github.com/TivanDev/ConnectNow-Developer-Applicant-Exercise/blob/main/1.PNG?raw=true)
 ![screenshot](https://github.com/TivanDev/ConnectNow-Developer-Applicant-Exercise/blob/main/2.PNG?raw=true)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
