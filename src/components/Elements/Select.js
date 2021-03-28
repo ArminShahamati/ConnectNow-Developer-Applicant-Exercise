@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useCounter } from '../../context/storeApi'
 
 const Select = props => {
+  const { setRange, sortRange,sortData,sortValue,setSortValue} = useCounter();
   const { onChange = () => {}, label } = props
   const { options = [] } = props
-  const [value, setValue] = useState('first_release_date')
   const [text, setText] = useState('Release Date')
   const [show, setShow] = useState(false)
 
@@ -11,32 +12,36 @@ const Select = props => {
     setShow(!show)
   }
 
-  useEffect(() => {
-    onChange(value)
-  }, [value])
+  useEffect(() => {     
+    onChange(sortValue)
+  }, [])
 
+  const handleSort = () => {
+    setRange(!sortRange);
+    sortData(sortValue);
+  }
   return (
     <>
       <p className='label'>{label && label}</p>
       <div style={{ display: 'flex', width: '100%' }}>
-        <div className='sort'>
-          <p>&#8593;</p>
+        <div className='sort' onClick={()=>handleSort()}>
+        {sortRange?  <p>&#8593;</p>:  <p>&#8595;</p>}
         </div>
         <div className='select'>
           <div className='select-value' onClick={() => handleChange()}>
             {text}
-          </div>
-       
+          </div>       
           {show && (
             <div className='absolute'>
               {options.map((option, index) => (
                 <div
                   className='select-input'
                   key={index}
-                  onClick={() => {
-                    setValue(option.value)
+                  onClick={() => {                  
+                    setSortValue(option.value)
                     setText(option.text)
                     setShow(false)
+                    sortData(option.value)
                   }}
                 >
                   {option.text}

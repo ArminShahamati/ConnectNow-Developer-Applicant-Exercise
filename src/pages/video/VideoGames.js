@@ -10,7 +10,7 @@ import { getGames } from '../../services/apiService'
 import { useCounter } from '../../context/storeApi'
 
 const VideoGames = () => {
-  const { showData, loadData, reset } = useCounter()
+  const { showData, loadData,sortData } = useCounter()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const VideoGames = () => {
     if (gameData.code == 200) {
       if (gameData.data != []) {
         loadData(gameData.data)
+        sortData('first_release_date');
         setLoading(false)
       }
     } else {

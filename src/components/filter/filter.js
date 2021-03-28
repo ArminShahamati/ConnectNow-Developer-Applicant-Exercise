@@ -35,7 +35,7 @@ const Filter = props => {
           <Select
             label='Order By'
             options={options}
-            onChange={value => {
+            onChange={value => {             
               sortData(value)
             }}
           />

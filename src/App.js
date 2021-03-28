@@ -5,7 +5,7 @@ import './assets/css/global.css'
 function App() {
   
   useEffect(() => {
-    console.clear();
+   // console.clear();
   }, [])
 
   return (
