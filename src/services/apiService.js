@@ -4,6 +4,7 @@ export const getGames = classId =>
   new Promise(resolve => {
     axios({
       method: 'get',
+      headers: {"Access-Control-Allow-Origin": "*"},
       url: 'https://public.connectnow.org.uk/applicant-test',
         timeout: 5000,
        
