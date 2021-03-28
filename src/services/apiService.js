@@ -1,12 +1,15 @@
 import axios from 'axios'
 
-export const getGames = classId =>
+export const getGames = () =>
   new Promise(resolve => {
     axios({
-      method: 'get',
-      headers: {"Access-Control-Allow-Origin": "*"},
-      url: 'https://public.connectnow.org.uk/applicant-test',
-        timeout: 5000,
+      method: 'get',           
+      url: 'https://cors-anywhere.herokuapp.com/https://public.connectnow.org.uk/applicant-test',    
+      timeout: 5000,
+      header: {
+        'Access-Control-Allow-Credentials': true
+
+        }
        
     })
       .then(res => {
@@ -27,4 +30,5 @@ export const getGames = classId =>
         }
         resolve(ret)
       })
+   
   })
