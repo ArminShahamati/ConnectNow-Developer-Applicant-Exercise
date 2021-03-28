@@ -2,16 +2,10 @@ import axios from 'axios'
 
 export const getGames = () =>
   new Promise(resolve => {
-    axios({
-      method: 'get',           
-      url: 'https://cors-anywhere.herokuapp.com/https://public.connectnow.org.uk/applicant-test',    
-      timeout: 5000,
-      header: {
-        'Access-Control-Allow-Credentials': true
-
-        }
-       
-    })
+    axios
+      .get('https://public.connectnow.org.uk/applicant-test/', {
+        timeout: 10000
+      })
       .then(res => {
         var ret = {
           code: 200,
@@ -30,5 +24,4 @@ export const getGames = () =>
         }
         resolve(ret)
       })
-   
   })
